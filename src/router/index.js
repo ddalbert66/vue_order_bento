@@ -5,11 +5,10 @@ import login from '@/views/login'
 import register from '@/views/register'
 import home from '@/components/Nav'
 import userManage from '@/views/user/userManage'
-import orderManage from '@/views/order/orderManage'
-import updateOrder from '@/views/order/updateOrder'
-import insertOrder from '@/views/order/insertOrder'
-import test2 from '@/views/user/test2'
 
+import loginRecord from '@/views/user/loginRecord'import orderManage from '@/views/order/orderManage'
+import updateOrder from '@/views/order/updateOrder'
+import insertOrder from '@/views/order/insertOrder'// import test2 from '@/views/user/test2'
 Vue.use(Router)
 
 const routerMap = [
@@ -25,13 +24,13 @@ const routerMap = [
     children: [
       {
         path:'/userManager',
-        name:'頁面一',
+        name:'用戶查詢',
         component:userManage
       },
       {
-        path:'/userManager2',
-        name:'頁面二',
-        component:test2
+        path:'/loginRecord',
+        name:'登入記錄',
+        component:loginRecord
       }
       ,
       {
@@ -80,7 +79,6 @@ const newRouter = new Router({
 })
 
 newRouter.beforeEach((to, from, next) => {
-  // console.log('abccccc')
   next()
 })
 

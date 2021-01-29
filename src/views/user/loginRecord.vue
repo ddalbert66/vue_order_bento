@@ -14,7 +14,7 @@
         @current-change="handleCurrentChange"/>
     </div>
     <el-table
-      :data="userData"
+      :data="loginRecord"
       class="trans"
       style="width: 100%;"
       border="">
@@ -23,30 +23,33 @@
         label="序號" 
         align="center"
         width="80"/>
-      <el-table-column
-        prop="CreatedAt"
-        label="註冊日期"
-        width="200"
-        align="center"/>
-      <el-table-column
+      <el-table-column 
+        label="用戶" 
+        align="center"
         prop="Name"
-        label="姓名"
-        width="100"
-        header-align="center"/>
-      <el-table-column
-        prop="LoginTime"
-        label="登入日期"
-        width="200"
-        align="center"/>
-    </el-table>
-  </div>
+        width="150px"/>
+      <el-table-column 
+        label="登入時間" 
+        align="center"
+        prop="LoginTime"/>
+      <el-table-column 
+        label="IP" 
+        align="center"
+        prop="Ip"
+        width="150px"/>
+      <el-table-column 
+        label="動作" 
+        align="center"
+        prop="LoginState"
+        width="150px"/>
+  </el-table></div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      userData : [],
+      loginRecord : [],
       currentPage : 0,
       pageSize : 20,
       totalCount : 0,
@@ -61,7 +64,7 @@ export default {
       this.$store.dispatch("Get",url)
     },
     search() {
-      var url = "/user/queryUser"
+      var url = "/user/loginRecord"
       var data = {
         url : url,
         data : {
@@ -70,7 +73,7 @@ export default {
         }
       }
       this.$store.dispatch("Post",data).then(res => {
-        this.userData = res.data
+        this.loginRecord = res.data
         this.totalCount = res.dataCount
       })
     },

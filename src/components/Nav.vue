@@ -16,7 +16,7 @@
               <span slot="title">用戶管理</span>
             </template>
             <el-menu-item index="1-1" route="/userManager">用戶名單</el-menu-item>
-            <el-menu-item index="1-2" route="/userManager2">登入紀錄</el-menu-item>
+            <el-menu-item index="1-2" route="/loginRecord">登入紀錄</el-menu-item>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
@@ -55,7 +55,6 @@ export default {
     }
   },
   created() {
-    console.log(this.$route)
   },
   methods: {
     handleOpen () {
@@ -98,6 +97,9 @@ export default {
   }
   .mt5 {
     margin-top: 5px;
+  }
+  .mb5 {
+    margin-bottom: 5px;
   }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 198px;
