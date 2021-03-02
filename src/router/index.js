@@ -6,7 +6,8 @@ import register from '@/views/register'
 import home from '@/components/Nav'
 import userManage from '@/views/user/userManage'
 
-import loginRecord from '@/views/user/loginRecord'import orderManage from '@/views/order/orderManage'
+import loginRecord from '@/views/user/loginRecord'
+import orderManage from '@/views/order/orderManage'
 import updateOrder from '@/views/order/updateOrder'
 import insertOrder from '@/views/order/insertOrder'// import test2 from '@/views/user/test2'
 Vue.use(Router)
@@ -48,11 +49,6 @@ const routerMap = [
         path: '/updateOrder',
         name: '修改餐廳',
         component:  updateOrder
-      },
-      {
-        path:'/userManager2',
-        name:'頁面二',
-        component:test2
       }
     ]
   },

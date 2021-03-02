@@ -1,6 +1,9 @@
 <template>
   <div class="orderManage">
     <!-- <el-button @click="apicheck">測試扭</el-button>  -->
+    <el-select slot="prepend" :placeholder="全部" style="width:105px">
+      <el-option v-for="item in EUserP_Role" :key="item.value" :label="item.key" :value="item.value"/>
+    </el-select>
     <el-button class="button" @click="search">搜尋</el-button>
     <router-link :to="{ path: '/insertOrder'}">
       <el-button
@@ -46,9 +49,11 @@ export default {
   data() {
     return {
       storeData : [],
+      enumData : [],
     }
   },
-  beforeCreated() {
+  created() {
+    this.getEnum()
     this.search()
   },
   methods: {
@@ -82,6 +87,19 @@ export default {
       }
       this.$store.dispatch("Post",data).then(res => {
         this.storeData = res.data
+      })
+    },
+    getEnum() {
+      var url = "/store/queryStore"
+      var data = {
+        url : url,
+        data : {
+          "pageNo" : 1,
+          "pageSize" : 5
+        }
+      }
+      this.$store.dispatch("Post",data).then(res => {
+        this.enumData = res.data
       })
     }
   }
