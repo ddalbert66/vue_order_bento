@@ -4,12 +4,12 @@ import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/login'
 import register from '@/views/register'
 import home from '@/components/Nav'
-import userManage from '@/views/user/userManage'
-
-import loginRecord from '@/views/user/loginRecord'
+// import test2 from '@/views/user/test2'
 import orderManage from '@/views/order/orderManage'
 import updateOrder from '@/views/order/updateOrder'
-import insertOrder from '@/views/order/insertOrder'// import test2 from '@/views/user/test2'
+import insertOrder from '@/views/order/insertOrder'
+import User from './user'
+import chatroom from '@/views/chatroom'
 Vue.use(Router)
 
 const routerMap = [
@@ -23,15 +23,28 @@ const routerMap = [
     name: '首頁',
     component: home,
     children: [
+      User.router,
       {
-        path:'/userManager',
-        name:'用戶查詢',
-        component:userManage
+        path: '/chatroom',
+        name: '聊天室',
+        component: chatroom
+      }
+      ,
+      {
+        path:'/orderManage',
+        name:'店家訂單',
+        component:orderManage
+      }
+      ,
+      {
+        path: '/insertOrder',
+        name: '新增餐廳',
+        component:  insertOrder
       },
       {
-        path:'/loginRecord',
-        name:'登入記錄',
-        component:loginRecord
+        path: '/updateOrder',
+        name: '修改餐廳',
+        component:  updateOrder
       }
       ,
       {
